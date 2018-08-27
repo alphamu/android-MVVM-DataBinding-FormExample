@@ -6,6 +6,7 @@ import android.widget.EditText;
 import com.alimuzaffar.testproject.ui.login.model.LoginFields;
 import com.alimuzaffar.testproject.ui.login.model.LoginForm;
 
+import androidx.annotation.VisibleForTesting;
 import androidx.databinding.BindingAdapter;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -15,8 +16,8 @@ public class LoginViewModel extends ViewModel {
     private View.OnFocusChangeListener onFocusEmail;
     private View.OnFocusChangeListener onFocusPassword;
 
-
-    void init() {
+    @VisibleForTesting
+    public void init() {
         login = new LoginForm();
         onFocusEmail =  new View.OnFocusChangeListener() {
 
@@ -59,6 +60,10 @@ public class LoginViewModel extends ViewModel {
 
     public MutableLiveData<LoginFields> getLoginFields() {
         return login.getLoginFields();
+    }
+
+    public LoginForm getForm() {
+        return login;
     }
 
     @BindingAdapter("error")
