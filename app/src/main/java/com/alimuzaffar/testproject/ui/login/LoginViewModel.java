@@ -4,19 +4,20 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.alimuzaffar.testproject.ui.login.model.LoginFields;
+import com.alimuzaffar.testproject.ui.login.model.LoginForm;
 
 import androidx.databinding.BindingAdapter;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class LoginViewModel extends ViewModel {
-    private LoginFields login;
+    private LoginForm login;
     private View.OnFocusChangeListener onFocusEmail;
     private View.OnFocusChangeListener onFocusPassword;
-    private MutableLiveData<LoginFields> buttonClick = new MutableLiveData<>();
+
 
     void init() {
-        login = new LoginFields();
+        login = new LoginForm();
         onFocusEmail =  new View.OnFocusChangeListener() {
 
             @Override
@@ -40,7 +41,7 @@ public class LoginViewModel extends ViewModel {
         };
     }
 
-    public LoginFields getLogin() {
+    public LoginForm getLogin() {
         return login;
     }
 
@@ -53,13 +54,11 @@ public class LoginViewModel extends ViewModel {
     }
 
     public void onButtonClick() {
-        if (login.isValid()) {
-            buttonClick.setValue(login);
-        }
+        login.onClick();
     }
 
-    public MutableLiveData<LoginFields> getButtonClick() {
-        return buttonClick;
+    public MutableLiveData<LoginFields> getLoginFields() {
+        return login.getLoginFields();
     }
 
     @BindingAdapter("error")

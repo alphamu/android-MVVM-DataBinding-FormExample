@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setupButtonClick() {
-        viewModel.getButtonClick().observe(this, new Observer<LoginFields>() {
+        viewModel.getLoginFields().observe(this, new Observer<LoginFields>() {
             @Override
             public void onChanged(LoginFields loginModel) {
                 Toast.makeText(LoginActivity.this,
