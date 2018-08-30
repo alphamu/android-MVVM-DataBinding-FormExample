@@ -1,6 +1,7 @@
 package com.alimuzaffar.testproject.ui.login.model;
 
 import com.alimuzaffar.testproject.BR;
+import com.alimuzaffar.testproject.R;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
@@ -8,7 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 public class LoginForm extends BaseObservable {
     private LoginFields fields = new LoginFields();
-    private LoginFields errors = new LoginFields();
+    private LoginErrorFields errors = new LoginErrorFields();
     private MutableLiveData<LoginFields> buttonClick = new MutableLiveData<>();
 
     @Bindable
@@ -32,14 +33,14 @@ public class LoginForm extends BaseObservable {
                 return true;
             } else {
                 if (setMessage) {
-                    errors.setEmail("Format is invalid");
+                    errors.setEmail(R.string.error_format_invalid);
                     notifyPropertyChanged(BR.valid);
                 }
                 return false;
             }
         }
         if (setMessage) {
-            errors.setEmail("Too short");
+            errors.setEmail(R.string.error_too_short);
             notifyPropertyChanged(BR.valid);
         }
 
@@ -54,7 +55,7 @@ public class LoginForm extends BaseObservable {
             return true;
         } else {
             if (setMessage) {
-                errors.setPassword("Too short");
+                errors.setPassword(R.string.error_too_short);
                 notifyPropertyChanged(BR.valid);
             }
 
@@ -77,12 +78,12 @@ public class LoginForm extends BaseObservable {
     }
 
     @Bindable
-    public String getEmailError() {
+    public Integer getEmailError() {
         return errors.getEmail();
     }
 
     @Bindable
-    public String getPasswordError() {
+    public Integer getPasswordError() {
         return errors.getPassword();
     }
 }

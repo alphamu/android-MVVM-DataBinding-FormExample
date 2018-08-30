@@ -67,8 +67,13 @@ public class LoginViewModel extends ViewModel {
     }
 
     @BindingAdapter("error")
-    public static void setError(EditText editText, String str) {
-        editText.setError(str);
+    public static void setError(EditText editText, Object strOrResId) {
+        if (strOrResId instanceof Integer) {
+            editText.setError(
+                    editText.getContext().getString((Integer) strOrResId));
+        } else {
+            editText.setError((String) strOrResId);
+        }
     }
 
     @BindingAdapter("onFocus")
