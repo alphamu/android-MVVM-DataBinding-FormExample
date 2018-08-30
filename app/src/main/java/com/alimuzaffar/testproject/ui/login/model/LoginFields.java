@@ -1,6 +1,7 @@
 package com.alimuzaffar.testproject.ui.login.model;
 
 import com.alimuzaffar.testproject.BR;
+import com.alimuzaffar.testproject.R;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
@@ -10,8 +11,8 @@ public class LoginFields extends BaseObservable {
 
     private String email;
     private String password;
-    public ObservableField<String> emailError = new ObservableField<>();
-    public ObservableField<String> passwordError = new ObservableField<>();
+    public ObservableField<Integer> emailError = new ObservableField<>();
+    public ObservableField<Integer> passwordError = new ObservableField<>();
 
     public String getEmail() {
         return email;
@@ -50,12 +51,12 @@ public class LoginFields extends BaseObservable {
                 return true;
             } else {
                 if (setMessage)
-                    emailError.set("Format is invalid");
+                    emailError.set(R.string.error_format_invalid);
                 return false;
             }
         }
         if (setMessage)
-            emailError.set("Too short");
+            emailError.set(R.string.error_too_short);
         return false;
     }
 
@@ -65,7 +66,7 @@ public class LoginFields extends BaseObservable {
             return true;
         } else {
             if (setMessage)
-                passwordError.set("Too short");
+                passwordError.set(R.string.error_too_short);
             return false;
         }
     }

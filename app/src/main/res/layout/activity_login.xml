@@ -22,7 +22,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="Email"
+            android:text="@string/label_email"
             app:layout_constraintEnd_toStartOf="@+id/txtEmail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/txtEmail" />
@@ -48,7 +48,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="Password"
+            android:text="@string/label_password"
             app:layout_constraintEnd_toStartOf="@+id/txtPassword"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/txtPassword" />
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:enabled="@{model.login.valid}"
-            android:text="Login"
+            android:text="@string/action_login"
             android:onClick="@{() -> model.onButtonClick()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
