@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TestProject</string>
+    <string name="app_name">MVVM Form Validation</string>
     <string name="label_email">Email</string>
     <string name="label_password">Password</string>
 
