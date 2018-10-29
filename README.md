@@ -1,7 +1,7 @@
 # android-MVVM-DataBinding-FormExample
 A demo of how to use Jetpack architecture and lifecycle component to implement a form. This includes validation and submit.
 
-## Requires Android Studio 3.2 RC or Newer
+## Requires Android Studio 3.2 or Newer
 
 Since this project uses Jetpack, you're going to need Android Studio 3.2 (currently in RC1) or newer.
 
